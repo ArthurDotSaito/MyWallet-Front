@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import axios from 'axios';
 import {ThreeDots } from 'react-loader-spinner'
 import { Link, useNavigate } from "react-router-dom";
-import { Input, Button, MainContainer,FieldArea } from './EntryPagesStyles';
+import { Input, Button, MainContainer,FieldArea, SignUp } from './LoginPageStyled';
 import { UserContext } from "../../context/UserContext";
 
 const LoginPage = () => {
@@ -12,7 +12,7 @@ const LoginPage = () => {
     const [password, setPassword] = React.useState("");
     const {setUser} = useContext(UserContext); 
     
-    function login(event){
+    function sendLoginRequest(event){
         event.preventDefault();
         setEnableLogin(true);
         const loginData = {email:email, password:password}
@@ -32,7 +32,7 @@ const LoginPage = () => {
     return(
         <MainContainer>
             <h1>MyWallet</h1>
-            <FieldArea onSubmit={login}>
+            <FieldArea onSubmit={sendLoginRequest}>
                 <Input
                     type="email"
                     value={email}
@@ -59,8 +59,8 @@ const LoginPage = () => {
                     color='FFFFFF'></ThreeDots>}
                 </Button>
             </FieldArea>
-            <Link to='/SignUp'>
-                <Button>Primeira Vez? Cadastre-se!</Button>
+            <Link to='/cadastro'>
+                <SignUp>Primeira Vez? Cadastre-se!</SignUp>
             </Link>
                 
         </MainContainer>

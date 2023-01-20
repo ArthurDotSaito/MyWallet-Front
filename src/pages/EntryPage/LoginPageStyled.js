@@ -8,6 +8,7 @@ export const MainContainer = styled.main`
     align-items: center;
     justify-content: center;
     background: #8C11BE;
+    text-decoration: none;
     h1{
         margin-bottom: 30px;
         font-family: 'Saira Stencil One', cursive;
@@ -21,6 +22,7 @@ export const MainContainer = styled.main`
         width: 100%;
         display: flex;
         justify-content: center;
+        text-decoration: none;
     }
     p{
         width: 100%;
@@ -60,13 +62,13 @@ border-radius: 5px;
 `
 
 export const Button = styled.button`
-width: 60%;
+width: 80%;
 height: 45px;
-background: #52B6FF;
-font-family: 'Lexend Deca', sans-serif;
+background: #A328D6;
+font-family: 'Raleway', sans-serif;
 font-size: 21px;
 line-height: 26px;
-font-weight: 400;
+font-weight: 700;
 border-radius: 5px;
 text-align: center;
 color: #FFFFFF;
@@ -75,4 +77,12 @@ justify-content: center;
 align-items: center;
 margin: 20px 0px 20px 0px;
 cursor: pointer;
+`
+export const SignUp = styled.p`
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #FFFFFF;
 `
