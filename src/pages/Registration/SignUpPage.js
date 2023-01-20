@@ -9,17 +9,17 @@ const SignUpPage = () =>{
     const [registryForm, setRegistryForm] = React.useState({ name: "", email: "", password:"", confirmPassword:""});
     const [enableButton, setEnableButton] = React.useState(false);
     
-    function handleFormInput(e){
-        setRegistryForm({...registryForm, [e.target.name]: e.target.value})
+    function handleInput(e){
+        setRegistryForm({ ...registryForm, [e.target.name]: e.target.value});
     }
 
     function sendRegistryRequest(event){
         event.preventDefault();
         setEnableButton(true);
-        const registryPromise = axios.post(`{process.env.API_URL}/signup`, registryForm);
+        const registryPromise = axios.post(`http://localhost:5000/signup`, registryForm);
         registryPromise.then((response) => {
             setEnableButton(false);
-            navigate("/home");
+            navigate("/");
         })
         registryPromise.catch((response) =>{
             alert(response.response.data.message);
@@ -32,35 +32,39 @@ const SignUpPage = () =>{
             <h1>My Wallet</h1>
             <FieldArea onSubmit={sendRegistryRequest}>
                 <Input
-                    type="name"
+                    type="text"
+                    name="name"
                     value={registryForm.name}
                     placeholder="Nome"
                     disabled={enableButton}
-                    onChange={handleFormInput}
+                    onChange={handleInput}
                     required>
                 </Input>
                 <Input
                     type="email"
+                    name="email"
                     value={registryForm.email}
                     placeholder="E-mail"
                     disabled={enableButton}
-                    onChange={handleFormInput}
+                    onChange={handleInput}
                     required>
                 </Input>
                 <Input
                     type="password"
+                    name="password"
                     value={registryForm.password}
                     placeholder="Senha"
                     disabled={enableButton}
-                    onChange={handleFormInput}
+                    onChange={handleInput}
                     required>
                 </Input>
                 <Input
                     type="password"
-                    value={registryForm.password}
+                    name="confirmPassword"
+                    value={registryForm.confirmPassword}
                     placeholder="Confirme sua senha"
                     disabled={enableButton}
-                    onChange={handleFormInput}
+                    onChange={handleInput}
                     required>
                 </Input>
                 <Button

@@ -53,11 +53,11 @@ padding: 10px;
 border: 1px solid #D5D5D5;
 border-radius: 5px;
 &::placeholder{
-    font-family: 'Lexend Deca', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 21px;
     line-height: 26px;
     font-weight: 400;
-    color: #DBDBDB;
+    color: black;
 }
 `
 
