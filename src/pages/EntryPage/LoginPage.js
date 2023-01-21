@@ -7,20 +7,24 @@ import { UserContext } from "../../context/UserContext";
 
 const LoginPage = () => {
     const navigate = useNavigate();
-    const [enableLogin, setEnableLogin] = React.useState(false)
-    const [email, setEmail] = React.useState("");
-    const [password, setPassword] = React.useState("");
+    const [enableLogin, setEnableLogin] = React.useState(false);
+    const [loginForm, setLoginForm] = React.useState({ email: "", password: ""});
     const {setUser} = useContext(UserContext); 
     
+    function loginHandleInput(e){
+        setLoginForm({ ...loginForm, [e.target.name]: e.target.value});
+    }
+
+
     function sendLoginRequest(event){
         event.preventDefault();
         setEnableLogin(true);
-        const loginData = {email:email, password:password}
-        const loginPromise = axios.post(`{process.env.API_URL}/signin`, loginData);
+
+        const loginPromise = axios.post(`http://localhost:5000/signin`, loginForm);
         loginPromise.then((response) => {
             setUser(response.data);
             setEnableLogin(false);
-            localStorage.setItem('token', JSON.stringify(response.data))
+            localStorage.setItem('user', JSON.stringify(response.data))
             navigate("/home");
         })
         loginPromise.catch((response) =>{
@@ -35,18 +39,20 @@ const LoginPage = () => {
             <FieldArea onSubmit={sendLoginRequest}>
                 <Input
                     type="email"
-                    value={email}
+                    name="email"
+                    value={loginForm.email}
                     placeholder="E-mail"
                     disabled={enableLogin}
-                    onChange={(event) => setEmail(event.target.value)}
+                    onChange={loginHandleInput}
                     required>
                 </Input>
                 <Input
                     type="password"
-                    value={password}
+                    name="password"
+                    value={loginForm.password}
                     placeholder="Password"
                     disabled={enableLogin}
-                    onChange={(event) => setPassword(event.target.value)}
+                    onChange={loginHandleInput}
                     required>
                 </Input>
                 <Button

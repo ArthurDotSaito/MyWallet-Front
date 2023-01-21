@@ -9,7 +9,7 @@ const SignUpPage = () =>{
     const [registryForm, setRegistryForm] = React.useState({ name: "", email: "", password:"", confirmPassword:""});
     const [enableButton, setEnableButton] = React.useState(false);
     
-    function handleInput(e){
+    function RegisterHandleInput(e){
         setRegistryForm({ ...registryForm, [e.target.name]: e.target.value});
     }
 
@@ -37,7 +37,7 @@ const SignUpPage = () =>{
                     value={registryForm.name}
                     placeholder="Nome"
                     disabled={enableButton}
-                    onChange={handleInput}
+                    onChange={RegisterHandleInput}
                     required>
                 </Input>
                 <Input
@@ -46,7 +46,7 @@ const SignUpPage = () =>{
                     value={registryForm.email}
                     placeholder="E-mail"
                     disabled={enableButton}
-                    onChange={handleInput}
+                    onChange={RegisterHandleInput}
                     required>
                 </Input>
                 <Input
@@ -55,7 +55,7 @@ const SignUpPage = () =>{
                     value={registryForm.password}
                     placeholder="Senha"
                     disabled={enableButton}
-                    onChange={handleInput}
+                    onChange={RegisterHandleInput}
                     required>
                 </Input>
                 <Input
@@ -64,7 +64,7 @@ const SignUpPage = () =>{
                     value={registryForm.confirmPassword}
                     placeholder="Confirme sua senha"
                     disabled={enableButton}
-                    onChange={handleInput}
+                    onChange={RegisterHandleInput}
                     required>
                 </Input>
                 <Button
