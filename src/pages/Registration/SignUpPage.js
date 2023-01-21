@@ -16,15 +16,21 @@ const SignUpPage = () =>{
     function sendRegistryRequest(event){
         event.preventDefault();
         setEnableButton(true);
-        const registryPromise = axios.post(`http://localhost:5000/signup`, registryForm);
-        registryPromise.then((response) => {
+        const passwordMatch = registryForm.password === registryForm.confirmPassword;
+        if(!passwordMatch){
+            alert("Senha e confirmação devem ser iguais.")
             setEnableButton(false);
-            navigate("/");
-        })
-        registryPromise.catch((response) =>{
-            alert(response.response.data.message);
-            setEnableButton(false);
-        })
+        }else{
+            const registryPromise = axios.post(`http://localhost:5000/signup`, registryForm);
+            registryPromise.then((response) => {
+                setEnableButton(false);
+                navigate("/");
+            })
+            registryPromise.catch((response) =>{
+                alert(response.response.data.message);
+                setEnableButton(false);
+            })
+        }
     }
 
     return(

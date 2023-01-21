@@ -22,8 +22,8 @@ const WalletHomePage = () =>{
                 <h1> Olá, {user.name}</h1>
                 <LogOutOutline
                     color={"#FFFFFF"}
-                    heigth="25px"
-                    width="25px"
+                    heigth="40px"
+                    width="40px"
                     onClick={logout}
                     style={{cursor:'pointer'}}>
                 </LogOutOutline>
