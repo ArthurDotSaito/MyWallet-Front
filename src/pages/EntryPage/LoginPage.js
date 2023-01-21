@@ -24,7 +24,7 @@ const LoginPage = () => {
         loginPromise.then((response) => {
             setUser(response.data);
             setEnableLogin(false);
-            localStorage.setItem('user', JSON.stringify(response.data))
+            localStorage.setItem('token', JSON.stringify(response.data))
             navigate("/home");
         })
         loginPromise.catch((response) =>{

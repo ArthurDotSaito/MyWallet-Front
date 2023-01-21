@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export const UserContext = createContext();
 
 export default function UserProvider({children}){
-    const userList = JSON.parse(localStorage.getItem("user"));
+    const userList = JSON.parse(localStorage.getItem('token'));
     const [user, setUser] = useState(userList !== null ? userList:{});
     const navigate = useNavigate();
 
@@ -12,7 +12,7 @@ export default function UserProvider({children}){
         if(userList == null){
             navigate("/");
         }else{
-
+            navigate("/home")
         }
     }, []);
 
