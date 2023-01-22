@@ -2,7 +2,8 @@ import React, { useContext, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 import { getWalletList } from "../../API/getWalletList";
 import { UserContext } from "../../context/UserContext"
-import { WalletContainer } from "./WalletListStyle";
+import { WalletContainer, WalletTransactions } from "./WalletListStyle";
+import { WalletItem } from '../WalletItem/WalletItem.js'
 
 export const WalletList = () =>{
     const navigate = useNavigate()
@@ -16,7 +17,6 @@ export const WalletList = () =>{
         setIsLoading(true);
         getWalletList(user.token)
             .then((response) => {
-              console.log(response);
               setUserData(response);
               setIsLoading(false);
             })
@@ -41,7 +41,15 @@ export const WalletList = () =>{
             {isLoading && <p>Loading...</p>}
             {userData.wallet.length === 0 && !isLoading ? 
             <p>Não há registros de entrada ou saída</p> :
-            <></>} 
+            <>
+                <WalletTransactions>
+                    {userData.wallet.map((element,index) => 
+                        <WalletItem 
+                            registerData={element}
+                            key={index}>
+                        </WalletItem>)}
+                </WalletTransactions>
+            </>} 
         </WalletContainer>
     )  
     
