@@ -22,11 +22,18 @@ export const HomePageHeader = styled.header`
     justify-content: space-between;
     align-items: center;
 
+    h1{
+        text-transform: capitalize;
+    }
 `
 
 export const ButtonsFooterContainer = styled.footer`
     width: 90%;
+    height: 15%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    a{
+        width: 90%;
+        display: flex;
+        justify-content: space-around;
+    }
 `

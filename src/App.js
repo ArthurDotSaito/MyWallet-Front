@@ -5,6 +5,7 @@ import UserProvider from './context/UserContext';
 import GlobalStyle from './styles/GlobalStyles';
 import SignUpPage from './pages/Registration/SignUpPage';
 import WalletHomePage from './pages/Wallet/WalletHomePage';
+import NewIncomePage from './pages/NewIncome/NewIncomePage';
 
 function App(){
     return(
@@ -15,6 +16,7 @@ function App(){
                     <Route path = "/" element = {<LoginPage />}/>
                     <Route path = "/cadastro" element = {<SignUpPage />}/>
                     <Route path = "/home" element = {<WalletHomePage />}/>
+                    <Route path = "/nova-entrada" element = {<NewIncomePage />}/>
                 </Routes>
             </UserProvider>
         </BrowserRouter>

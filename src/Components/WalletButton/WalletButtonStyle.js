@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const WalletButtonStyle = styled.button`
-    width: 40%;
+    width: 90%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: space-around;
     font-size: 1rem;
     font-weight: 700;
     border: none;
@@ -17,9 +17,10 @@ export const WalletButtonStyle = styled.button`
     cursor: pointer;
 
     p{
-        width: 50%;
+        width: 40%;
         font-family: 'Raleway', sans-serif;
         font-weight: 400;
+        font-size: 1.4rem;
         line-height: 20px;
         color:#FFFFFF;
     }

@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import { HomePageContainer, HomePageHeader,ButtonsFooterContainer } from "./WalletHomeStyled";
 import { LogOutOutline } from 'react-ionicons'
@@ -23,17 +23,20 @@ const WalletHomePage = () =>{
             <HomePageHeader>
                 <h1> Olá, {user.name}</h1>
                 <LogOutOutline
+                    size={100}
                     color={"#FFFFFF"}
-                    heigth="40px"
-                    width="40px"
                     onClick={logout}
                     style={{cursor:'pointer'}}>
                 </LogOutOutline>
             </HomePageHeader>
             <WalletList></WalletList>
             <ButtonsFooterContainer>
-                <WalletButton type='income'></WalletButton>
-                <WalletButton type='outcome'></WalletButton>
+                <Link to='/nova-entrada'>
+                    <WalletButton type='income' onClick={() => navigate("/nova-entrada")}></WalletButton>
+                </Link>
+                <Link to='/nova-saida'>
+                    <WalletButton type='outcome'></WalletButton>
+                </Link>
             </ButtonsFooterContainer>
         </HomePageContainer>
     )
