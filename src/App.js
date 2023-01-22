@@ -19,6 +19,7 @@ function App(){
                     <Route path = "/home" element = {<WalletHomePage />}/>
                     <Route path = "/nova-entrada" element = {<NewIncomePage />}/>
                     <Route path = "/nova-saida" element = {<NewOutcomePage />}/>
+                    <Route path="*" element={"Erro, caminho errado"} />
                 </Routes>
             </UserProvider>
         </BrowserRouter>

@@ -6,7 +6,7 @@ export const WalletContainer = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:${props =>props.walletIsEmpty ? "space between": "center"};
+    justify-content:${props =>props.walletIsEmpty ? "space-between": "center"};
     background: #FFFFFF;
     padding: 2rem 1rem 1rem;
     margin: 1rem 1rem;

@@ -6,8 +6,11 @@ export const BalanceWalletContainer = styled.section`
   align-items: center;
   
   h1{
-    color: #000;
+    font-family: 'Raleway', sans-serif;
     font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 19px;
+    color:#000000;
   }
 `
 
