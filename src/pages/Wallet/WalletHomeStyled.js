@@ -23,3 +23,10 @@ export const HomePageHeader = styled.header`
     align-items: center;
 
 `
+
+export const ButtonsFooterContainer = styled.footer`
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`

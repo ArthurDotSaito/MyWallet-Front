@@ -15,7 +15,6 @@ const LoginPage = () => {
         setLoginForm({ ...loginForm, [e.target.name]: e.target.value});
     }
 
-
     function sendLoginRequest(event){
         event.preventDefault();
         setEnableLogin(true);

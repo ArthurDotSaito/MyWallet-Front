@@ -7,12 +7,13 @@ export default function UserProvider({children}){
     const userList = JSON.parse(localStorage.getItem('token'));
     const [user, setUser] = useState(userList !== null ? userList:{});
     const navigate = useNavigate();
+    console.log(user)
 
     useEffect(() =>{
         if(userList == null){
             navigate("/");
         }else{
-            navigate("/home")
+            navigate("/home");
         }
     }, []);
 
