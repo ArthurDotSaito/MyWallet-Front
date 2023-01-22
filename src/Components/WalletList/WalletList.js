@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { getWalletList } from "../../API/getWalletList";
 import { UserContext } from "../../context/UserContext"
 import { WalletContainer, WalletTransactions } from "./WalletListStyle";
-import { WalletItem } from '../WalletItem/WalletItem.js'
+import { WalletItem } from '../WalletItem/WalletItem'
+import {WalletBalance} from '../WalletBalance/WalletBalance'
 
 export const WalletList = () =>{
     const navigate = useNavigate()
@@ -49,6 +50,7 @@ export const WalletList = () =>{
                             key={index}>
                         </WalletItem>)}
                 </WalletTransactions>
+                <WalletBalance registerData={userData.wallet}></WalletBalance>
             </>} 
         </WalletContainer>
     )  
