@@ -4,6 +4,7 @@ import {ThreeDots } from 'react-loader-spinner'
 import { Link, useNavigate } from "react-router-dom";
 import { Input, Button, MainContainer,FieldArea, SignUp } from './LoginPageStyled';
 import { UserContext } from "../../context/UserContext";
+import { loginRequest } from "../../API/loginRequest";
 
 const LoginPage = () => {
     const navigate = useNavigate();
@@ -14,12 +15,12 @@ const LoginPage = () => {
     function loginHandleInput(e){
         setLoginForm({ ...loginForm, [e.target.name]: e.target.value});
     }
-
+    console.log(process.env.REACT_APP_API_URL)
     function sendLoginRequest(event){
         event.preventDefault();
         setEnableLogin(true);
-
-        const loginPromise = axios.post(`http://localhost:5000/signin`, loginForm);
+        
+        const loginPromise = loginRequest(loginForm);
         loginPromise.then((response) => {
             setUser(response.data);
             setEnableLogin(false);
@@ -27,7 +28,7 @@ const LoginPage = () => {
             navigate("/home");
         })
         loginPromise.catch((response) =>{
-            alert(response.response.data.message);
+            alert(response.data.message);
             setEnableLogin(false);
         })
     }
@@ -66,8 +67,7 @@ const LoginPage = () => {
             </FieldArea>
             <Link to='/cadastro'>
                 <SignUp>Primeira Vez? Cadastre-se!</SignUp>
-            </Link>
-                
+            </Link>      
         </MainContainer>
     )
 }

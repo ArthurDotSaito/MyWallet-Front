@@ -1,7 +1,7 @@
-import axios from "axios";
 import React from "react";
 import { ThreeDots } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
+import { registryRequest } from "../../API/registryRequest";
 import { MainContainer,FieldArea,Input,Button } from "./SignUpPageStyle";
 
 const SignUpPage = () =>{
@@ -21,7 +21,7 @@ const SignUpPage = () =>{
             alert("Senha e confirmação devem ser iguais.")
             setEnableButton(false);
         }else{
-            const registryPromise = axios.post(`http://localhost:5000/signup`, registryForm);
+            const registryPromise = registryRequest(registryForm);
             registryPromise.then((response) => {
                 setEnableButton(false);
                 navigate("/");

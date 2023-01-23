@@ -3,7 +3,7 @@ import axios from "axios";
 export const getWalletList = async (token) => {
     console.log("Entrei na função getWalletList")
     try {
-      const res = await axios.get(`http://localhost:5000/wallet`, {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/wallet`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

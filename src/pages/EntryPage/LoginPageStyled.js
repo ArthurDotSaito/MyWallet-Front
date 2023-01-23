@@ -85,4 +85,5 @@ export const SignUp = styled.p`
     line-height: 18px;
     text-align: center;
     color: #FFFFFF;
+    text-decoration: none;
 `
