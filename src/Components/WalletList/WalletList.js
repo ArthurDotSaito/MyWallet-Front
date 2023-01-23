@@ -11,8 +11,6 @@ export const WalletList = () =>{
     const { user } = useContext(UserContext);
     const [userData, setUserData] = React.useState(undefined)
     const [isLoading, setIsLoading] = React.useState(false)
-    console.log(user);
-    console.log(user.token);
 
     useEffect(() => {
         setIsLoading(true);
@@ -34,8 +32,6 @@ export const WalletList = () =>{
     }
 
     if(userData === undefined) return null
-
-    console.log(userData)
 
      return(
         <WalletContainer walletIsEmpty={userData.wallet.length > 0}>

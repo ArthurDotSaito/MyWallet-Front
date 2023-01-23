@@ -10,7 +10,6 @@ import { WalletButton } from "../../Components/WalletButton/WalletButton";
 const WalletHomePage = () =>{
     const navigate = useNavigate();
     const { user, setUser } = useContext(UserContext);
-    console.log(user)
 
     function logout(){
         localStorage.removeItem("token");

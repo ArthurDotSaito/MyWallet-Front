@@ -15,7 +15,7 @@ const LoginPage = () => {
     function loginHandleInput(e){
         setLoginForm({ ...loginForm, [e.target.name]: e.target.value});
     }
-    console.log(process.env.REACT_APP_API_URL)
+
     function sendLoginRequest(event){
         event.preventDefault();
         setEnableLogin(true);
